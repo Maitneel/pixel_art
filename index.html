@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>dot</title>
+</head>
+<body>
+  <div class="setting_div" id="setting_div">
+    <label for="height">height</label>
+    <input type="number" id="height" value="16"><br>
+    <label for="width">width</label>
+    <input type="number" id="width" value="16">
+    <button id="update">update</button>
+  </div>
+  <div id="root_div"></div>
+  <div class="color_setting" id="color_setting">
+    <div id="color_input">
+      <input type="color" id="color_input" value="#ffffff">
+    </div>
+    <div class="color_palette_root" id="color_palette_root"></div>
+  </div>
+  <script src="./create_elements.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

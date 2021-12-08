@@ -1,0 +1,74 @@
+#root_div {
+  overflow: scroll;
+  width: calc(100vw - 212px - (20px * 2));
+  height: 100vh;
+}
+
+.pixel_pairent {
+  border: solid;
+  border-width: 0.5px;
+  border-color: #000000;
+  display: inline-block;
+}
+
+.slice_y {
+  display: flex;
+}
+
+.pixel {
+  width: 20px; 
+  height: 20px;
+  border: solid;
+  border-width: 0.5px;
+  border-color: #000000;
+}
+
+.color_setting {
+  width: 212px;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 0px;
+  padding: 20px;
+
+
+  /* display: flex;
+  border: solid;
+  border-width: 0.5px;
+  border-color: #000000;
+  display: inline-block; */
+}
+
+.color_palette_root {
+  margin-top: 20px;
+  width: 212px;
+  border: solid;
+  border-color: #999999;
+  /* border-width: 0px 0px 0px 1px; */
+  border-width: 0px;
+}
+
+.color_palette_slice_y {
+  display: flex;
+}
+
+
+.color_palette_pixel {
+  width: 20px;
+  height: 20px;
+  border: solid;
+  border-color: #999999;
+  /* border-width: 0px 1px 1px 0px; */
+  border-width: 1px;
+}
+
+
+.color_pixel {
+  width: 100px;
+  height: 35px;
+  border: solid;
+  border-width: 0.5px;
+  border-color: #000000;
+  display: inline-block;
+}
