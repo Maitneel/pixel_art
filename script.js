@@ -62,7 +62,7 @@
     for (let i = 0; i < height_value; i++) {
       pixel[i] = new Array();
       for (let j = 0; j < width_value; j++) {
-        pixel[i][j] = document.getElementById('pixel_x' + i + 'y' + j);
+        pixel[i][j] = document.getElementById('pixel_x' + j + 'y' + (height.value - i - 1));
         pixel[i][j].onclick = () => {
           // console.log(input_color[choicing_color_index].value)
           pixel[i][j].style.backgroundColor = choosing_color;

@@ -29,7 +29,7 @@
       for (let j = 0; j < width.value; j++) {
         y_x_pixle[i][j] = document.createElement('div')
         y_x_pixle[i][j].className = 'pixel';
-        y_x_pixle[i][j].id = 'pixel_x' + i + 'y' + j;
+        y_x_pixle[i][j].id = 'pixel_x' + j + 'y' + (height.value - i - 1);
         slice_y_direction[i].appendChild(y_x_pixle[i][j]);
       }
       pixel_pairent.appendChild(slice_y_direction[i]);
