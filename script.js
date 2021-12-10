@@ -7,9 +7,6 @@
   const color_input = document.getElementById('color_input');
   const color_palette_root = document.getElementById('color_palette_root');
 
-  const height_value = height.value;
-  const width_value = width.value;
-
   let color_div;
   let input_color;
   let choicing_color_index = 0;
@@ -59,9 +56,9 @@
 
   function create_canvas() {
     let pixel = new Array();
-    for (let i = 0; i < height_value; i++) {
+    for (let i = 0; i < height.value; i++) {
       pixel[i] = new Array();
-      for (let j = 0; j < width_value; j++) {
+      for (let j = 0; j < width.value; j++) {
         pixel[i][j] = document.getElementById('pixel_x' + j + 'y' + (height.value - i - 1));
         pixel[i][j].onclick = () => {
           // console.log(input_color[choicing_color_index].value)
