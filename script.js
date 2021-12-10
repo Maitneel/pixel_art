@@ -13,6 +13,28 @@
   let color_div;
   let input_color;
   let choicing_color_index = 0;
+
+
+  let canvas_data = new Array();
+  let canvas_index = 0;
+
+  function create_canvas_date() {
+  let new_canvas = new Array(height.value);
+    for (let i = 0; i < height.value; i++) {
+      new_canvas[i] = new Array(width.value);
+      for (let j = 0; j < width.value; j++) {
+        new_canvas[i][j] = null;
+      }
+    }
+    console.log(new_canvas)
+    return new_canvas;
+  }
+
+  
+
+  
+
+
   
   function get_pixel() {
     color_div = new Array();
@@ -35,17 +57,23 @@
 
   let choosing_color = "#ffffff";
 
-  let pixel = new Array();
-  for (let i = 0; i < height_value; i++) {
-    pixel[i] = new Array();
-    for (let j = 0; j < width_value; j++) {
-      pixel[i][j] = document.getElementById('pixel_x' + i + 'y' + j);
-      pixel[i][j].onclick = () => {
-        // console.log(input_color[choicing_color_index].value)
-        pixel[i][j].style.backgroundColor = choosing_color;
+  function create_canvas() {
+    let pixel = new Array();
+    for (let i = 0; i < height_value; i++) {
+      pixel[i] = new Array();
+      for (let j = 0; j < width_value; j++) {
+        pixel[i][j] = document.getElementById('pixel_x' + i + 'y' + j);
+        pixel[i][j].onclick = () => {
+          // console.log(input_color[choicing_color_index].value)
+          pixel[i][j].style.backgroundColor = choosing_color;
+          canvas_data[canvas_index][i][j] = choosing_color;
+        }
       }
     }
   }
+  
+
+
 
   function create_color_palette_pixel(color_value, id) {
     let color = document.createElement('div')
@@ -62,6 +90,7 @@
   let color_palette_slice = new Array();
   let choosing_index = {i: 0, j: 0};
 
+  // when choose color(input), append color palette
   function append_color(color) {
     let i, j;
     i = color_list.length - 1;
@@ -114,6 +143,12 @@
     choosing_color = event.target.value;
   }
 
+  window.addEventListener('load', function() {
+    canvas_data[canvas_data.length] = create_canvas_date();
+    console.log('canvas')
+    console.log(canvas_data);
+    create_canvas();
+  })
 
 
 })();
