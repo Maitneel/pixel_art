@@ -3,6 +3,8 @@
   
   const height = document.getElementById('height');
   const width = document.getElementById('width');
+  const create_button = document.getElementById('create_canvas');
+  const canvas_select = document.getElementById('canvas_select')
 
   const color_input = document.getElementById('color_input');
   const color_palette_root = document.getElementById('color_palette_root');
@@ -12,7 +14,7 @@
   let choicing_color_index = 0;
 
 
-  let canvas_data = new Array();
+  let canvas_data = new Map();
   let canvas_index = 0;
 
   function create_canvas_date() {
@@ -54,16 +56,19 @@
 
   let choosing_color = "#ffffff";
 
-  function create_canvas() {
-    let pixel = new Array();
-    for (let i = 0; i < height.value; i++) {
+  let pixel;
+  function create_canvas(canvas_size) {
+    let height = canvas_size.height;
+    let width = canvas_size.width;
+    pixel = new Array();
+    for (let i = 0; i < height; i++) {
       pixel[i] = new Array();
-      for (let j = 0; j < width.value; j++) {
-        pixel[i][j] = document.getElementById('pixel_x' + j + 'y' + (height.value - i - 1));
+      for (let j = 0; j < width; j++) {
+        pixel[i][j] = document.getElementById('pixel_x' + j + 'y' + (height - i - 1));
         pixel[i][j].onclick = () => {
           // console.log(input_color[choicing_color_index].value)
           pixel[i][j].style.backgroundColor = choosing_color;
-          canvas_data[canvas_index][i][j] = choosing_color;
+          canvas_data.get(canvas_select.value)[i][j] = choosing_color;
         }
       }
     }
@@ -131,6 +136,15 @@
     color_palette_div[i][j].onclick();
   }
 
+  let canvas_size = new Map();
+
+  function set_canvas_color(canvas) {
+    for (let i = 0; i < pixel.length; i++) {
+      for (let j = 0; j < pixel[i].length; j++) {
+        pixel[i][j].style.backgroundColor = canvas[i][j];
+      }
+    }
+  }
 
 
   color_input.onchange = (event) => {
@@ -141,11 +155,29 @@
   }
 
   window.addEventListener('load', function() {
-    canvas_data[canvas_data.length] = create_canvas_date();
+    canvas_size.set(canvas_select.value, {
+      height: height.value,
+      width: width.value
+    });
+    canvas_data.set(canvas_select.value, create_canvas_date());
     console.log('canvas')
     console.log(canvas_data);
-    create_canvas();
+    create_canvas(canvas_size.get(canvas_select.value));
   })
 
+
+  create_button.addEventListener('click', function() {
+    canvas_size.set(canvas_select.value, {
+      height: height.value,
+      width: width.value
+    });
+    canvas_data.set(canvas_select.value, create_canvas_date());
+    create_canvas(canvas_size.get(canvas_select.value));
+  });
+
+  canvas_select.addEventListener('change', function() {
+    create_canvas(canvas_size.get(canvas_select.value));
+    set_canvas_color(canvas_data.get(canvas_select.value))
+  });
 
 })();
