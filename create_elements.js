@@ -110,5 +110,8 @@ canvas_select.addEventListener('change', function() {
   create_pixel(canvas_info.get(canvas_select.value));
 }, true);
 
+  window.addEventListener('beforeunload', function(event) {
+    event.preventDefault();
+  })
 
 })();
