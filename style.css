@@ -23,14 +23,24 @@
   border-color: #000000;
 }
 
-.color_setting {
-  width: 212px;
+.right_side_bar {
+  width: 220px;
   height: 100vh;
   position: absolute;
-  z-index: 2;
+  z-index: 10000;
   right: 0px;
   top: 0px;
   padding: 20px;
+}
+
+.color_setting {
+  width: 212px;
+  height: 50vh;
+  /* position: absolute; */
+  /* z-index: 2; */
+  /* right: 0px; */
+  /* top: 0px; */
+  /* padding: 20px; */
 
 
   /* display: flex;
@@ -45,6 +55,7 @@
   width: 212px;
   border: solid;
   border-color: #999999;
+  overflow: scroll;
   /* border-width: 0px 0px 0px 1px; */
   border-width: 0px;
 }
@@ -71,4 +82,9 @@
   border-width: 0.5px;
   border-color: #000000;
   display: inline-block;
+}
+
+.layer_root_div {
+width: 100%;
+height: 50vh;
 }
